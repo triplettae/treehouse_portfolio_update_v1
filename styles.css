@@ -8,8 +8,8 @@ body {
   padding: 0;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  color: #222;
-  background: #f7f5f0;
+  color: #203224;
+  background: #eee;
 }
 /* Link Styles */
 
@@ -17,8 +17,14 @@ a {
   text-decoration: none;
   color: #999;
 }
+a.selected, a:hover {
+  color: #eee;
+}
+a.selected {
+  font-weight: 700;
+}
 a:hover {
-  color: #6633ff;
+  border-bottom: 1px solid #eee;
 }
 
 /* Section Styles */
@@ -31,10 +37,11 @@ a:hover {
   position: fixed;
   text-align: center;
 }
+
 .nav {
   display: flex;
   justify-content: space-around;
-  font-weight: 700;
+  font-weight: 400;
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
@@ -43,16 +50,16 @@ a:hover {
 .nav .name {
     display: block;
     margin-right: auto;
-    color: white;
+    color: #eee;
 }
 .nav li {
-  padding: 5px 10px 10px 10px;
+  padding: 5px 8px 8px 8px;
 }
 .nav a {
   transition: all .5s;
 }
 .nav a:hover {
-  color: white
+  color: #eee;
 }
 
 header {
@@ -77,29 +84,35 @@ header .profile-image:hover {
   transform: scale(1.2) rotate(5deg);
 }
 .tag {
-  background-color: #efefef;
-  color: black;
+  background-color: #eee;
+  color: #222;
   padding: 10px;
   border-radius: 5px;
   display: table;
   margin: 10px auto;
 } 
 .location {
-  background-color: #222;
-  color: yellow;
+  background-color: #203224;
+  color: #e0f2e4;
+  border: 1px solid #999;
 }
 .card {
   margin: 30px;
   padding: 20px 40px 40px;
   max-width: 500px;
   text-align: left;
-  background: #fff;
-  border-bottom: 4px solid #ccc;
+  background: #e0f2e4;
+  border: 1px solid #222;
   border-radius: 6px;
   transition: all .5s;
 }
 .card:hover {
-  border-color: #ff99ff;
+  border-color: #aaa;
+}
+
+.card img {
+  max-width: 100%;
+  border: 4px solid #fff;
 }
 
 ul.skills {
@@ -110,20 +123,30 @@ ul.skills {
 .skills li {
   border-radius: 6px;
   display: inline-block;
-  background: #ff9904;
+  background: #a6937c;
   color: white;
   padding: 5px 10px;
   margin: 2px;
 }
 
 .skills li:nth-child(odd) {
-  background: #0399ff;
+  background: #528cd7;
+}
+
+/* Create a more specific selector for the second set of skills and reverse the background colors compared to the first set of skills. */
+
+ul.skills.reverse li {
+  background: #528cd7;
+}
+
+ul.skills.reverse li:nth-child(odd) {
+  background: #a6937c;
 }
 
 footer {
   width: 100%;
   min-height: 30px;
-  padding: 20px 0 40px 20px;
+  padding: 20px 0 40px 0; /* Removed 20px left padding to center on mobile */
 }
 
 footer .copyright {
@@ -167,16 +190,111 @@ a.social:hover {
   clear: both;
 }
 
-/* Styles for larger screens */
-@media screen and (min-width: 720px) {
+
+
+/***********
+PAGE: COMMON
+***********/
+
+#content-wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 20px 5% 0;
+  text-align: left;
+}
+
+
+
+/**************
+PAGE: EDUCATION
+**************/
+
+.education-block {
+  margin: 0;
+  padding: 0;
+}
+
+.education-program {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.education-specialization {
+  font-size: .9em;
+  font-weight: 400;
+}
+
+.school {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.graduation-date {
+  font-size: .9em;
+  font-weight: 300;
+}
+
+.courses-heading {
+  font-size: .9em;
+  font-weight: 700;
+}
+
+.courses {
+  font-size: .825em;
+  font-weight: 300;
+}
+
+
+
+/***************
+PAGE: EXPERIENCE
+***************/
+
+.experience-block {
+  margin: 0;
+  padding: 0;
+}
+
+.date-range {
+  font-size: 1.25em;
+}
+
+.company {
+  font-size: 1em;
+  padding-left: .75em;
+  font-weight: 400;
+}
+
+.job-title {
+  font-size: 1em;
+  padding-left:.75em;
+  font-weight: 800;
+}
+
+.accomplishments {
+  font-size: .9em;
+  padding-left: 3em;
+}
+
+/************************
+Styles for larger screens
+************************/
+@media screen and (min-width: 640px) {
   
   .flex {
-      display: -ms-flexbox;      /* TWEENER - IE 10 */
-      display: flex; 
-      max-width: 1200px;
-      -ms-flex-pack: distribute;
-      justify-content: space-around;
-      margin: 0 auto;
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: flex; 
+    max-width: 1200px;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin: 0 auto;
+    /* custom */
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    min-width: 500px;
   }
 
   header {
